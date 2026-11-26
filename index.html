@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeНЕОН — Неоновая галерея | Екатеринбург • Доставка по РФ</title>
+  <meta name="description" content="NeНЕОН — студия и галерея авторского силиконового неона. Вывески, витрины, световые линии и арт-объекты с ресурсом 50 000 часов и гарантией 3 года." />
+  <link rel="canonical" href="https://neonekaterinburg.ru/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NeНЕОН" />
+  <meta property="og:title" content="NeНЕОН — Неоновая галерея | Екатеринбург • Доставка по РФ" />
+  <meta property="og:description" content="NeНЕОН — студия и галерея авторского силиконового неона. Вывески, витрины, световые линии и арт-объекты с ресурсом 50 000 часов и гарантией 3 года." />
+  <meta property="og:url" content="https://neonekaterinburg.ru/" />
+  <meta property="og:image" content="https://neonekaterinburg.ru/images/work-23.jpg" />
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "NeНЕОН",
+    "url": "https://neonekaterinburg.ru/",
+    "image": "https://neonekaterinburg.ru/images/work-23.jpg",
+    "description": "NeНЕОН — студия и галерея авторского силиконового неона в Екатеринбурге с доставкой по всей России.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Екатеринбург",
+      "addressCountry": "RU"
+    },
+    "areaServed": ["Екатеринбург", "Россия"]
+  }
+  </script>
+
+  <!-- Шрифты: Inter + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* =====================================================================
+       1. ДИЗАЙН-ТОКЕНЫ КОНЦЕПЦИИ «НЕОНОВАЯ ГАЛЕРЕЯ»
+       По умолчанию: глубокий галерейный обсидиан; переключатель на светлый зал
+    ===================================================================== */
+    :root {
+      --bg-page: #090A0F;
+      --bg-surface: #11131C;
+      --bg-surface-2: #171A26;
+      --bg-header: rgba(9, 10, 15, 0.86);
+      --text-primary: #F5F6FA;
+      --text-secondary: #A1A7B8;
+      --text-muted: #6E7588;
+      --border-hairline: rgba(255, 255, 255, 0.09);
+      --border-hover: rgba(0, 229, 255, 0.45);
+      --accent-cyan: #00E5FF;
+      --accent-pink: #FF2E93;
+      --card-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+
+      /* Логотип NeНЕОН на тёмном фоне */
+      --logo-ne: #00E5FF;
+      --logo-ne-glow: 0 0 14px rgba(0, 229, 255, 0.65);
+      --logo-neon: #FF2E93;
+      --logo-neon-glow: 0 0 16px rgba(255, 46, 147, 0.72);
+      --logo-frame: rgba(245, 246, 250, 0.72);
+      --logo-num: #A1A7B8;
+    }
+
+    html.light-theme {
+      --bg-page: #F7F7F5;
+      --bg-surface: #FFFFFF;
+      --bg-surface-2: #EFEFEB;
+      --bg-header: rgba(247, 247, 245, 0.90);
+      --text-primary: #121318;
+      --text-secondary: #4D515E;
+      --text-muted: #767B8A;
+      --border-hairline: rgba(18, 19, 24, 0.10);
+      --border-hover: rgba(0, 158, 194, 0.55);
+      --accent-cyan: #009EC2;
+      --accent-pink: #D91B6C;
+      --card-shadow: 0 16px 40px rgba(18, 19, 24, 0.06);
+
+      /* Логотип NeНЕОН на светлом фоне */
+      --logo-ne: #009EC2;
+      --logo-ne-glow: 0 0 10px rgba(0, 158, 194, 0.25);
+      --logo-neon: #D91B6C;
+      --logo-neon-glow: 0 0 10px rgba(217, 27, 108, 0.25);
+      --logo-frame: #121318;
+      --logo-num: #4D515E;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .gal-header {
+      background-color: var(--bg-header);
+      border-bottom: 1px solid var(--border-hairline);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .gal-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--card-shadow);
+      transition: background-color 0.3s ease, border-color 0.25s ease, transform 0.3s ease;
+    }
+
+    .gal-card:hover {
+      border-color: var(--border-hover);
+    }
+
+    .gal-pill {
+      background-color: var(--bg-surface-2);
+      border: 1px solid var(--border-hairline);
+    }
+
+    .text-main { color: var(--text-primary); }
+    .text-sec { color: var(--text-secondary); }
+    .text-mut { color: var(--text-muted); }
+    .border-gal { border-color: var(--border-hairline); }
+
+    /* =====================================================================
+       2. ФИРМЕННЫЙ ЛОГОТИП NeНЕОН (ОТКРЫТАЯ СПРАВА РАМКА ВОКРУГ Ne)
+    ===================================================================== */
+    .logo-lockup {
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
+      letter-spacing: -0.025em;
+    }
+
+    .logo-ne-frame {
+      position: relative;
+      display: inline-flex;
+      align-items: baseline;
+      border-top: 1.5px solid var(--logo-frame);
+      border-left: 1.5px solid var(--logo-frame);
+      border-bottom: 1.5px solid var(--logo-frame);
+      border-right: none;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+      padding: 4px 3px 3px 13px;
+      margin-right: 1px;
+      transition: border-color 0.3s ease;
+    }
+
+    .logo-ne-num {
+      position: absolute;
+      top: 2px;
+      left: 3.5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--logo-num);
+    }
+
+    .logo-ne-text {
+      color: var(--logo-ne);
+      text-shadow: var(--logo-ne-glow);
+    }
+
+    .logo-neon-text {
+      color: var(--logo-neon);
+      text-shadow: var(--logo-neon-glow);
+      padding-top: 1px;
+    }
+
+    /* =====================================================================
+       3. СПЕКТРАЛЬНЫЙ СТЕНД И ТЕКСТУРЫ СТЕН
+    ===================================================================== */
+    .wall-graphite {
+      background: radial-gradient(circle at 50% 45%, #191D2B 0%, #090A0F 80%);
+    }
+
+    .wall-concrete {
+      background-color: #2B2E36;
+      background-image:
+        radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.38) 85%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 2px, transparent 2px, transparent 6px);
+    }
+
+    .wall-brick {
+      background-color: #261618;
+      background-image:
+        radial-gradient(circle at 50% 45%, rgba(255, 46, 147, 0.10) 0%, rgba(10, 8, 10, 0.65) 85%),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 24px),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 52px);
+    }
+
+    .wall-plaster {
+      background: radial-gradient(circle at 50% 45%, #EAE8E1 0%, #D4D1C7 85%);
+    }
+
+    .neon-tube-preview {
+      transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Плавный переход изображений в галерее */
+    .gallery-img-fade {
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.22s ease;
+    }
+
+    /* Скрытие скроллбара для горизонтальной ленты фильтров на мобильном */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#FF2E93] selection:text-white">
+
+  <!-- Фоновые световые ореолы галереи -->
+  <div id="ambientHalos" class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-48 left-1/4 w-[480px] h-[480px] rounded-full bg-[#00E5FF]/[0.06] blur-[150px]"></div>
+    <div class="absolute top-1/3 -right-40 w-[440px] h-[440px] rounded-full bg-[#FF2E93]/[0.06] blur-[150px]"></div>
+  </div>
+
+  <!-- =====================================================================
+       ШАПКА САЙТА
+  ====================================================================== -->
+  <header class="sticky top-0 z-50 gal-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+      <!-- Логотип NeНЕОН + подзаголовок -->
+      <a href="#top" class="inline-flex flex-col items-start shrink-0 select-none">
+        <span class="logo-lockup text-xl sm:text-2xl font-black">
+          <span class="logo-ne-frame">
+            <span class="logo-ne-num">10</span>
+            <span class="logo-ne-text">Ne</span>
+          </span><span class="logo-neon-text">НЕОН</span>
+        </span>
+        <span class="hidden sm:block text-[9.5px] font-mono uppercase tracking-[0.12em] text-mut mt-1.5">
+          ЕКБ • ДОСТАВКА ПО РФ • ГАРАНТИЯ 3 ГОДА
+        </span>
+      </a>
+
+      <!-- Навигация -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-sec">
+        <a href="#exhibition" class="hover:text-main transition-colors">Экспозиция</a>
+        <a href="#spectrum" class="hover:text-main transition-colors">Спектр и толщина</a>
+        <a href="#gallery" class="hover:text-main transition-colors">Каталог работ (26)</a>
+        <a href="#craft" class="hover:text-main transition-colors">Материалы и кейс</a>
+        <a href="#estimate" class="hover:text-main transition-colors">Расчёт за 15 мин</a>
+      </nav>
+
+      <!-- Действия -->
+      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        <!-- Переключатель Тёмная галерея / Светлый зал -->
+        <button id="themeSwitchBtn" type="button" aria-label="Переключить тему оформления"
+                class="gal-pill inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold text-main hover:border-[#00E5FF] transition cursor-pointer">
+          <span id="themeIcon" class="text-sm leading-none">☀</span>
+          <span id="themeText" class="hidden sm:inline">Светлый зал</span>
+        </button>
+
+        <a href="https://t.me/LedCustom69" target="_blank" rel="noopener noreferrer"
+           class="px-3.5 sm:px-4 py-2 rounded-full bg-[#FF2E93] hover:bg-[#ff47a1] text-white text-xs sm:text-sm font-bold shadow-[0_0_20px_rgba(255,46,147,0.35)] transition">
+          Telegram
+        </a>
+
+        <a href="https://max.ru/u/f9LHodD0cOJbK04B-v9Z8bP7X8962i9k0xW7N2o0R7F9j0I2g7A5s6D7f" target="_blank" rel="noopener noreferrer"
+           class="gal-pill px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold text-main hover:border-[#FF2E93] transition">
+          MAX
+        </a>
+
+        <button id="burgerBtn" type="button" aria-label="Открыть меню"
+                class="lg:hidden gal-pill p-2 rounded-full text-main">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div id="mobileDrawer" class="hidden lg:hidden gal-card border-x-0 border-b px-4 py-4 space-y-2.5">
+      <div class="text-[10px] font-mono uppercase tracking-[0.12em] text-mut pb-2 border-b border-gal">
+        ЕКБ • ДОСТАВКА ПО РФ • ГАРАНТИЯ 3 ГОДА
+      </div>
+      <a href="#exhibition" class="mob-nav-link block py-1 text-sm font-semibold text-main">01 // Экспозиция света</a>
+      <a href="#spectrum" class="mob-nav-link block py-1 text-sm font-semibold text-main">02 // Спектральный стенд</a>
+      <a href="#gallery" class="mob-nav-link block py-1 text-sm font-semibold text-main">03 // Каталог работ (26 фото)</a>
+      <a href="#craft" class="mob-nav-link block py-1 text-sm font-semibold text-main">04 // Материалы и качество</a>
+      <a href="#estimate" class="mob-nav-link block py-1 text-sm font-semibold text-main">05 // Расчёт и проектирование</a>
+    </div>
+  </header>
+
+  <main id="top" class="relative z-10">
+
+    <!-- =====================================================================
+         01 // ЭКСПОЗИЦИЯ СВЕТА (HERO SHOWROOM)
+    ====================================================================== -->
+    <section id="exhibition" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 sm:pt-16 sm:pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+        <!-- Левая колонка: Журнальная типографика -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full gal-pill text-xs font-mono text-sec">
+            <span class="w-2 h-2 rounded-full bg-[#00E5FF] shadow-[0_0_8px_#00E5FF]"></span>
+            <span>01 // ЭКСПОЗИЦИЯ СВЕТА • ШОУРУМ NEНЕОН</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-[56px] font-black tracking-tight leading-[1.07] text-main">
+            Неон как световой арт-объект для
+            <span class="bg-gradient-to-r from-[#00E5FF] via-[#7B61FF] to-[#FF2E93] bg-clip-text text-transparent">
+              витрин, брендов и интерьеров
+            </span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-sec leading-relaxed max-w-2xl">
+            Создаём индивидуальные вывески и световые инсталляции из гибкого силиконового неона толщиной 6 и 8 мм. Чистая линия без диодных точек, надёжная пайка стыков, ресурс <strong class="text-main font-semibold">50 000 часов</strong> и официальная гарантия <strong class="text-main font-semibold">3 года</strong>.
+          </p>
+
+          <!-- Кнопки -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-1">
+            <a href="#estimate"
+               class="px-6 py-3.5 rounded-full bg-[#FF2E93] hover:bg-[#ff47a1] text-white text-sm font-bold shadow-[0_0_28px_rgba(255,46,147,0.4)] transition">
+              Рассчитать макет за 15 минут
+            </a>
+            <a href="#gallery"
+               class="gal-pill px-6 py-3.5 rounded-full text-sm font-bold text-main hover:border-[#00E5FF] transition">
+              Смотреть 26 работ →
+            </a>
+          </div>
+
+          <!-- Полоса ключевых гарантий -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-gal">
+            <div class="gal-card rounded-2xl p-3.5">
+              <div class="text-[11px] font-mono text-[#00E5FF] font-semibold">ПРОФИЛЬ</div>
+              <div class="text-sm sm:text-base font-extrabold text-main mt-1">Силикон 6 и 8 мм</div>
+            </div>
+            <div class="gal-card rounded-2xl p-3.5">
+              <div class="text-[11px] font-mono text-[#FF2E93] font-semibold">РЕСУРС</div>
+              <div class="text-sm sm:text-base font-extrabold text-main mt-1">50 000 часов</div>
+            </div>
+            <div class="gal-card rounded-2xl p-3.5">
+              <div class="text-[11px] font-mono text-emerald-400 font-semibold">СБОРКА</div>
+              <div class="text-sm sm:text-base font-extrabold text-main mt-1">Надёжная пайка</div>
+            </div>
+            <div class="gal-card rounded-2xl p-3.5">
+              <div class="text-[11px] font-mono text-amber-400 font-semibold">СЕРВИС</div>
+              <div class="text-sm sm:text-base font-extrabold text-main mt-1">Гарантия 3 года</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая колонка: Интерактивный экспонат шоурума с режимом День / Вечер -->
+        <div class="lg:col-span-5">
+          <div class="gal-card rounded-3xl overflow-hidden relative group">
+            <!-- Переключатель освещения в зале -->
+            <div class="px-5 py-3.5 border-b border-gal flex items-center justify-between">
+              <span class="text-[11px] font-mono uppercase tracking-wider text-mut">
+                ЭКСПОНАТ № 01 • СВЕЧЕНИЕ В ЗАЛЕ
+              </span>
+              <div class="inline-flex rounded-full gal-pill p-0.5 text-[11px] font-semibold">
+                <button type="button" id="heroEveningBtn"
+                        class="px-3 py-1 rounded-full bg-[#FF2E93] text-white transition">
+                  Вечер
+                </button>
+                <button type="button" id="heroDayBtn"
+                        class="px-3 py-1 rounded-full text-sec hover:text-main transition">
+                  День
+                </button>
+              </div>
+            </div>
+
+            <!-- Витрина экспоната -->
+            <div id="heroShowcaseStage" class="relative h-[340px] sm:h-[400px] overflow-hidden bg-[#08090D] flex items-center justify-center">
+              <img src="images/work-23.jpg" alt="Сотворение Адама — силиконовый неон 6 мм"
+                   onerror="this.style.display='none'; document.getElementById('heroPlaceholder').classList.remove('hidden');"
+                   class="w-full h-full object-cover transition-all duration-500" id="heroShowcaseImg" />
+              <!-- Фолбэк для превью без локальных файлов -->
+              <div id="heroPlaceholder" class="hidden w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-[#0D101B] via-[#131726] to-[#1A1021]">
+                <div class="text-3xl sm:text-4xl font-black tracking-tight text-white mb-2"
+                     style="text-shadow: 0 0 10px #00E5FF, 0 0 28px rgba(0,229,255,0.85);">
+                  Сотворение Адама
+                </div>
+                <span class="text-xs font-mono text-[#00E5FF]">images/work-23.jpg • Экспонат № 01</span>
+              </div>
+              <div id="heroDayOverlay" class="absolute inset-0 bg-white/35 backdrop-brightness-125 opacity-0 pointer-events-none transition-opacity duration-500"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent"></div>
+
+              <!-- Музейная табличка экспоната -->
+              <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/65 backdrop-blur-md border border-white/15 flex items-end justify-between gap-3">
+                <div>
+                  <div class="text-[10px] font-mono uppercase tracking-widest text-[#00E5FF]">
+                    КОНТУРНЫЙ НЕОН 6 ММ • ПРОЗРАЧНЫЙ АКРИЛ
+                  </div>
+                  <div class="text-base sm:text-lg font-bold text-white mt-0.5">
+                    «Сотворение Адама» — двухцветный арт-объект
+                  </div>
+                </div>
+                <a href="#gallery" class="px-3 py-1.5 rounded-full bg-white/15 hover:bg-white/25 text-white text-xs font-semibold shrink-0 transition">
+                  В каталог ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         02 // СПЕКТРАЛЬНЫЙ СТЕНД (15 ОТТЕНКОВ, 6/8 ММ, 4 ТЕКСТУРЫ СТЕН)
+    ====================================================================== -->
+    <section id="spectrum" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 border-t border-gal">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-[0.16em] text-[#00E5FF] font-semibold">
+            02 // СПЕКТРАЛЬНЫЙ СТЕНД
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black text-main mt-1.5 tracking-tight">
+            Палитра свечения и толщина шнура
+          </h2>
+        </div>
+        <p class="text-sm text-sec max-w-md">
+          Выберите оттенок, сечение силиконового шнура и фактуру стены, чтобы оценить характер ореола в вашем пространстве.
+        </p>
+      </div>
+
+      <div class="gal-card rounded-3xl overflow-hidden">
+        <!-- Окно предпросмотра неона -->
+        <div id="spectrumStage" class="wall-graphite relative min-h-[270px] sm:min-h-[340px] p-6 sm:p-10 flex flex-col justify-between transition-all duration-300">
+          <!-- Верхняя панель: Толщина шнура и фон стены -->
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <!-- Толщина 6 / 8 мм -->
+            <div class="inline-flex items-center gap-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 p-1 text-xs">
+              <span class="px-2.5 text-zinc-400 font-mono text-[11px]">ШНУР:</span>
+              <button type="button" data-cord="6"
+                      class="cord-btn px-3 py-1 rounded-full bg-[#00E5FF] text-[#090A0F] font-bold transition">
+                6 мм (арт / детали)
+              </button>
+              <button type="button" data-cord="8"
+                      class="cord-btn px-3 py-1 rounded-full text-zinc-300 hover:text-white font-semibold transition">
+                8 мм (витрины / фасад)
+              </button>
+            </div>
+
+            <!-- Текстура стены -->
+            <div class="inline-flex flex-wrap items-center gap-1 rounded-full bg-black/50 backdrop-blur-md border border-white/15 p-1 text-xs">
+              <button type="button" data-wall="wall-graphite"
+                      class="wall-btn px-3 py-1 rounded-full bg-white text-[#090A0F] font-bold transition">
+                Тёмный графит
+              </button>
+              <button type="button" data-wall="wall-concrete"
+                      class="wall-btn px-3 py-1 rounded-full text-zinc-300 hover:text-white font-medium transition">
+                Бетон
+              </button>
+              <button type="button" data-wall="wall-brick"
+                      class="wall-btn px-3 py-1 rounded-full text-zinc-300 hover:text-white font-medium transition">
+                Кирпич
+              </button>
+              <button type="button" data-wall="wall-plaster"
+                      class="wall-btn px-3 py-1 rounded-full text-zinc-300 hover:text-white font-medium transition">
+                Светлая штукатурка
+              </button>
+            </div>
+          </div>
+
+          <!-- Центральная светящаяся надпись и неоновая трубка -->
+          <div class="my-auto py-8 flex flex-col items-center justify-center text-center select-none">
+            <div id="neonPreviewWord"
+                 class="neon-tube-preview text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight"
+                 style="color: #FFFFFF; text-shadow: 0 0 6px #FF2E93, 0 0 18px rgba(255,46,147,0.9), 0 0 42px rgba(255,46,147,0.7);">
+              NeНЕОН
+            </div>
+            <!-- Имитация силиконовой трубки снизу -->
+            <div id="neonTubeBar"
+                 class="neon-tube-preview mt-5 w-48 sm:w-72 rounded-full"
+                 style="height: 6px; background-color: #FFFFFF; box-shadow: 0 0 8px #FF2E93, 0 0 22px rgba(255,46,147,0.95), 0 0 44px rgba(255,46,147,0.65);">
+            </div>
+          </div>
+
+          <!-- Нижняя строка телеметрии спектра -->
+          <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono px-3 py-2 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 text-zinc-300">
+            <span id="spectrumReadoutLeft">ОТТЕНОК: МАРМЕЛАДНО-РОЗОВЫЙ • ДЛИНА ВОЛНЫ ~620 нм</span>
+            <span id="spectrumReadoutRight">СЕЧЕНИЕ: 6 ММ • ПИТАНИЕ 12V DC • IP65/IP67</span>
+          </div>
+        </div>
+
+        <!-- Палитра из 15 оттенков -->
+        <div class="p-5 sm:p-8 space-y-5">
+          <div id="spectrumSwatches" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
+            <!-- Заполняется скриптом -->
+          </div>
+
+          <div class="gal-pill rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-center gap-3.5">
+              <span id="activeSwatchDot" class="w-9 h-9 rounded-full border border-white/20 shrink-0"
+                    style="background-color: #FF2E93; box-shadow: 0 0 16px rgba(255,46,147,0.75);"></span>
+              <div>
+                <div id="activeSwatchTitle" class="text-sm sm:text-base font-extrabold text-main">
+                  Выбран цвет: Мармеладно-розовый (620 нм)
+                </div>
+                <div id="activeSwatchMeta" class="text-xs text-sec mt-0.5">
+                  Силиконовый шнур 6 мм • Ровное свечение без точек • Гарантия 3 года
+                </div>
+              </div>
+            </div>
+
+            <button type="button" id="applyColorToFormBtn"
+                    class="px-5 py-3 rounded-full bg-[#FF2E93] hover:bg-[#ff47a1] text-white text-xs sm:text-sm font-bold shrink-0 transition cursor-pointer">
+              Рассчитать в этом цвете →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         03 // КАТАЛОГ РАБОТ (ВСЕ 26 ФОТО С ТОЧНОЙ ПРИВЯЗКОЙ И ПРЕДЗАГРУЗКОЙ)
+    ====================================================================== -->
+    <section id="gallery" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 border-t border-gal">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-8 sm:mb-10">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-[0.16em] text-[#FF2E93] font-semibold">
+            03 // КАТАЛОГ РАБОТ
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black text-main mt-1.5 tracking-tight">
+            Реализованные вывески и световые объекты
+          </h2>
+          <p class="text-sm text-sec mt-1.5">
+            26 реальных фотографий со сборочного стола и установленных объектов в Екатеринбурге, Санкт-Петербурге и по всей России.
+          </p>
+        </div>
+
+        <!-- Вкладки фильтрации -->
+        <div id="galleryFilters" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+          <button type="button" data-cat="all"
+                  class="gal-filter-btn px-4 py-2 rounded-full bg-[#FF2E93] text-white text-xs sm:text-sm font-bold shrink-0 transition">
+            Все работы
+          </button>
+          <button type="button" data-cat="storefront"
+                  class="gal-filter-btn gal-pill px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-main shrink-0 transition">
+            Вывески и витрины
+          </button>
+          <button type="button" data-cat="interior"
+                  class="gal-filter-btn gal-pill px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-main shrink-0 transition">
+            Интерьер и линии
+          </button>
+          <button type="button" data-cat="art"
+                  class="gal-filter-btn gal-pill px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-main shrink-0 transition">
+            Арт и логотипы
+          </button>
+        </div>
+      </div>
+
+      <!-- Сетка галереи -->
+      <div id="galleryCardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Генерируется скриптом -->
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         04 // МАТЕРИАЛЫ И КАЧЕСТВО + КЕЙС «БУЛОЧНАЯ № 64»
+    ====================================================================== -->
+    <section id="craft" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 border-t border-gal">
+      <div class="max-w-3xl mb-8 sm:mb-10">
+        <span class="font-mono text-xs uppercase tracking-[0.16em] text-[#00E5FF] font-semibold">
+          04 // МАТЕРИАЛЫ И КАЧЕСТВО
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black text-main mt-1.5 tracking-tight">
+          Почему мы работаем только с чистым силиконом
+        </h2>
+        <p class="text-sm sm:text-base text-sec mt-2">
+          Внешне дешёвый ПВХ-неон похож на силиконовый в первый день, но разница проявляется в равномерности свечения, морозостойкости и пожарной безопасности.
+        </p>
+      </div>
+
+      <!-- Таблица сравнения -->
+      <div class="gal-card rounded-3xl overflow-hidden mb-8">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse min-w-[640px]">
+            <thead>
+              <tr class="border-b border-gal text-xs font-mono uppercase tracking-wider text-mut">
+                <th class="py-4 px-6 w-[26%]">Параметр</th>
+                <th class="py-4 px-6 w-[37%] text-[#00E5FF]">Гибкий силиконовый неон (NeНЕОН)</th>
+                <th class="py-4 px-6 w-[37%] text-rose-400">Дешёвый ПВХ-неон</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y border-gal text-sm">
+              <tr>
+                <td class="py-4 px-6 font-bold text-main">Пожелтение и УФ-стойкость</td>
+                <td class="py-4 px-6 text-main font-medium bg-emerald-500/[0.05]">
+                  ✓ Не желтеет и не мутнеет на солнце даже спустя годы
+                </td>
+                <td class="py-4 px-6 text-sec">
+                  ✕ Желтеет и трескается через 6–12 месяцев эксплуатации
+                </td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-main">Рассеивание света</td>
+                <td class="py-4 px-6 text-main font-medium bg-emerald-500/[0.05]">
+                  ✓ Идеально ровная световая линия без видимых диодных точек
+                </td>
+                <td class="py-4 px-6 text-sec">
+                  ✕ Видны отдельные светодиоды и провалы яркости на изгибах
+                </td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-main">Морозостойкость</td>
+                <td class="py-4 px-6 text-main font-medium bg-emerald-500/[0.05]">
+                  ✓ Сохраняет эластичность от -40°C до +60°C
+                </td>
+                <td class="py-4 px-6 text-sec">
+                  ✕ Дубеет на морозе и лопается при перепадах температур
+                </td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-main">Герметизация и сборка</td>
+                <td class="py-4 px-6 text-main font-medium bg-emerald-500/[0.05]">
+                  ✓ Надёжная пайка стыков и силиконовая герметизация IP65/IP67
+                </td>
+                <td class="py-4 px-6 text-sec">
+                  ✕ Сборка на скрутках и термоклее, окисление контактов
+                </td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-main">Ресурс свечения</td>
+                <td class="py-4 px-6 text-main font-medium bg-emerald-500/[0.05]">
+                  ✓ 50 000 часов непрерывной работы (более 5 лет)
+                </td>
+                <td class="py-4 px-6 text-sec">
+                  ✕ 8 000 – 12 000 часов до заметной потери яркости
+                </td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-main">Питание и безопасность</td>
+                <td class="py-4 px-6 text-main font-medium bg-emerald-500/[0.05]">
+                  ✓ Блок питания с запасом мощности +30%, негорючий силикон
+                </td>
+                <td class="py-4 px-6 text-sec">
+                  ✕ Блок впритык по нагрузке, перегрев и риск оплавления ПВХ
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Кейс: Булочная № 64 -->
+      <div class="gal-card rounded-3xl p-6 sm:p-8 lg:p-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-5 space-y-4">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 font-mono text-[11px] font-bold text-rose-400">
+              КЕЙС ИЗ ПРАКТИКИ • «БУЛОЧНАЯ № 64»
+            </span>
+            <h3 class="text-xl sm:text-2xl font-black text-main leading-snug">
+              Замена сгоревшей ПВХ-вывески на безопасный силиконовый неон
+            </h3>
+            <div class="space-y-2.5 text-xs sm:text-sm text-sec leading-relaxed">
+              <p>
+                <strong class="text-main">Задача:</strong> у пекарни ночью замкнула и оплавилась старая витринная вывеска из дешёвого ПВХ — от локального перегрева треснуло стекло витрины. Требовалось срочно изготовить новую безопасную вывеску.
+              </p>
+              <p>
+                <strong class="text-main">Решение:</strong> собрали контурную вывеску из негорючего силикона 8 мм на прозрачной акриловой подложке, выполнили надёжную пайку стыков и установили блок питания с запасом мощности +30%.
+              </p>
+            </div>
+
+            <!-- Цифры кейса -->
+            <div class="grid grid-cols-3 gap-2.5 pt-2">
+              <div class="gal-pill rounded-xl p-3">
+                <div class="text-base sm:text-lg font-black text-[#00E5FF]">2 дня</div>
+                <div class="text-[11px] text-mut">срок сборки</div>
+              </div>
+              <div class="gal-pill rounded-xl p-3">
+                <div class="text-base sm:text-lg font-black text-[#FF2E93]">+30%</div>
+                <div class="text-[11px] text-mut">запас БП</div>
+              </div>
+              <div class="gal-pill rounded-xl p-3">
+                <div class="text-base sm:text-lg font-black text-emerald-400">3 года</div>
+                <div class="text-[11px] text-mut">гарантия</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div data-case-idx="0" class="case-photo-btn group relative rounded-2xl overflow-hidden border border-gal bg-[#08090D] h-56 sm:h-64 cursor-pointer">
+              <img src="images/fire-1.jpg" alt="Кейс Булочная № 64 — последствия перегрева ПВХ"
+                   onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="hidden w-full h-full flex flex-col items-center justify-center p-4 text-center">
+                <span class="font-mono text-xs text-rose-400 font-bold">Кадр 01 • Последствия ПВХ</span>
+                <span class="text-[11px] font-mono text-zinc-500 mt-1">images/fire-1.jpg</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-3.5 right-3.5 flex items-center justify-between text-xs font-semibold text-white">
+                <span>01 • Очаг перегрева ПВХ</span>
+                <span class="font-mono text-[11px] text-zinc-300">Открыть ↗</span>
+              </div>
+            </div>
+
+            <div data-case-idx="1" class="case-photo-btn group relative rounded-2xl overflow-hidden border border-gal bg-[#08090D] h-56 sm:h-64 cursor-pointer">
+              <img src="images/fire-2.jpg" alt="Кейс Булочная № 64 — лопнувшая витрина"
+                   onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="hidden w-full h-full flex flex-col items-center justify-center p-4 text-center">
+                <span class="font-mono text-xs text-rose-400 font-bold">Кадр 02 • Треснувшая витрина</span>
+                <span class="text-[11px] font-mono text-zinc-500 mt-1">images/fire-2.jpg</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-3.5 right-3.5 flex items-center justify-between text-xs font-semibold text-white">
+                <span>02 • Треснувшее стекло витрины</span>
+                <span class="font-mono text-[11px] text-zinc-300">Открыть ↗</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         05 // РАСЧЁТ И ПРОЕКТИРОВАНИЕ ЗА 15 МИНУТ
+    ====================================================================== -->
+    <section id="estimate" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 border-t border-gal">
+      <div class="gal-card rounded-3xl p-6 sm:p-10 lg:p-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+          <!-- Левая часть: Заголовок и интерактивный калькулятор ориентира -->
+          <div class="lg:col-span-6 space-y-6">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-[0.16em] text-[#FF2E93] font-semibold">
+                05 // РАСЧЁТ И ПРОЕКТИРОВАНИЕ
+              </span>
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-main mt-2 leading-tight tracking-tight">
+                Пришлите логотип, эскиз или идею словами — за 15 минут подготовим визуализацию и точный расчёт
+              </h2>
+              <p class="text-sm text-sec mt-3 leading-relaxed">
+                Подберём толщину силиконового шнура (6 или 8 мм), оттенок свечения, прозрачную или фигурную акриловую подложку и блок питания с запасом мощности +30%.
+              </p>
+            </div>
+
+            <!-- Быстрый конфигуратор параметров -->
+            <div class="gal-pill rounded-2xl p-5 space-y-4">
+              <div class="text-xs font-mono uppercase tracking-wider text-mut">
+                ПАРАМЕТРЫ БУДУЩЕЙ ВЫВЕСКИ
+              </div>
+
+              <!-- Ширина вывески -->
+              <div>
+                <div class="flex items-center justify-between text-xs sm:text-sm font-semibold text-main mb-2">
+                  <span>Ориентировочная ширина:</span>
+                  <span id="widthValueLabel" class="font-mono text-[#00E5FF] font-bold">80 см</span>
+                </div>
+                <input id="widthRangeInput" type="range" min="30" max="250" step="10" value="80"
+                       class="w-full accent-[#FF2E93] cursor-pointer" />
+                <div class="flex justify-between text-[10px] font-mono text-mut mt-1">
+                  <span>30 см (настольная)</span>
+                  <span>120 см (витрина)</span>
+                  <span>250 см (фасад)</span>
+                </div>
+              </div>
+
+              <!-- Размещение -->
+              <div class="grid grid-cols-2 gap-2.5 pt-1">
+                <button type="button" data-place="Интерьер (IP20/IP65)"
+                        class="place-btn py-2.5 px-3 rounded-xl bg-[#00E5FF] text-[#090A0F] text-xs font-bold transition">
+                  В помещение
+                </button>
+                <button type="button" data-place="Улица / фасад (IP67)"
+                        class="place-btn gal-card py-2.5 px-3 rounded-xl text-xs font-semibold text-main transition">
+                  На улицу / витрину
+                </button>
+              </div>
+            </div>
+
+            <!-- Прямые мессенджеры -->
+            <div class="flex flex-wrap items-center gap-3">
+              <a href="https://t.me/LedCustom69?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B2%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B8%20%D1%80%D0%B0%D1%81%D1%87%D1%91%D1%82%20%D0%B2%D1%8B%D0%B2%D0%B5%D1%81%D0%BA%D0%B8%20Ne%D0%9D%D0%95%D0%9E%D0%9D"
+                 target="_blank" rel="noopener noreferrer"
+                 class="px-5 py-3 rounded-full bg-[#FF2E93] hover:bg-[#ff47a1] text-white text-xs sm:text-sm font-bold transition">
+                Отправить эскиз в Telegram
+              </a>
+              <a href="https://max.ru/u/f9LHodD0cOJbK04B-v9Z8bP7X8962i9k0xW7N2o0R7F9j0I2g7A5s6D7f"
+                 target="_blank" rel="noopener noreferrer"
+                 class="gal-pill px-5 py-3 rounded-full text-xs sm:text-sm font-bold text-main hover:border-[#FF2E93] transition">
+                Написать в MAX
+              </a>
+            </div>
+          </div>
+
+          <!-- Правая часть: Форма заявки -->
+          <div class="lg:col-span-6">
+            <form id="calcRequestForm" class="gal-pill rounded-3xl p-5 sm:p-7 space-y-4">
+              <div class="text-base sm:text-lg font-extrabold text-main">
+                Заявка на визуализацию и расчёт
+              </div>
+
+              <div>
+                <label for="reqRefProject" class="block text-xs font-mono text-mut mb-1.5">
+                  ОРИЕНТИР ИЗ КАТАЛОГА ИЛИ ЦВЕТ
+                </label>
+                <input id="reqRefProject" type="text"
+                       placeholder="Например: Вывеска «Ты можешь всё» или ваш текст"
+                       class="w-full px-4 py-3 rounded-xl gal-card text-sm text-main placeholder:text-mut focus:outline-none focus:border-[#00E5FF]" />
+              </div>
+
+              <div>
+                <label for="reqIdea" class="block text-xs font-mono text-mut mb-1.5">
+                  ОПИСАНИЕ ИДЕИ, НАДПИСИ ИЛИ РАЗМЕРОВ
+                </label>
+                <textarea id="reqIdea" rows="3" required
+                          placeholder="Напишите текст вывески, пожелания по цвету или куда планируете повесить..."
+                          class="w-full px-4 py-3 rounded-xl gal-card text-sm text-main placeholder:text-mut focus:outline-none focus:border-[#00E5FF]"></textarea>
+              </div>
+
+              <div>
+                <label for="reqContact" class="block text-xs font-mono text-mut mb-1.5">
+                  ТЕЛЕФОН, TELEGRAM ИЛИ НИК В MAX
+                </label>
+                <input id="reqContact" type="text" required
+                       placeholder="+7 (999) 000-00-00 или @username"
+                       class="w-full px-4 py-3 rounded-xl gal-card text-sm text-main placeholder:text-mut focus:outline-none focus:border-[#00E5FF]" />
+              </div>
+
+              <button type="submit"
+                      class="w-full py-3.5 px-6 rounded-full bg-[#00E5FF] hover:bg-[#33ecff] text-[#090A0F] font-extrabold text-sm shadow-[0_0_24px_rgba(0,229,255,0.35)] transition cursor-pointer">
+                Получить визуализацию и расчёт →
+              </button>
+
+              <!-- Блок подтверждения отправки -->
+              <div id="formSuccessBox" class="hidden rounded-2xl p-4 bg-emerald-500/10 border border-emerald-500/30 text-xs sm:text-sm text-main space-y-2">
+                <div class="font-bold text-emerald-400">✓ Заявка сформирована и скопирована!</div>
+                <p class="text-sec">
+                  Мы сохранили ваши параметры. Для моментального ответа дизайнера нажмите кнопку ниже, чтобы открыть диалог в Telegram с готовым текстом:
+                </p>
+                <a id="formDirectTgLink" href="https://t.me/LedCustom69" target="_blank" rel="noopener noreferrer"
+                   class="inline-block px-4 py-2 rounded-full bg-[#FF2E93] text-white font-bold text-xs">
+                  Перейти в Telegram с заявкой →
+                </a>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       ФУТЕР
+  ====================================================================== -->
+  <footer class="relative z-10 border-t border-gal py-10 sm:py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="space-y-2">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="logo-lockup text-xl font-black">
+            <span class="logo-ne-frame">
+              <span class="logo-ne-num">10</span>
+              <span class="logo-ne-text">Ne</span>
+            </span><span class="logo-neon-text">НЕОН</span>
+          </span>
+          <span class="px-2.5 py-0.5 rounded-full gal-pill text-[11px] font-mono text-emerald-400 font-semibold">
+            ГАРАНТИЯ 3 ГОДА
+          </span>
+        </div>
+        <p class="text-xs text-mut">
+          Производство в Екатеринбурге • Бережная доставка в защитной обрешётке по всей России
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-5 text-xs sm:text-sm font-medium text-sec">
+        <a href="#spectrum" class="hover:text-main transition-colors">Спектр</a>
+        <a href="#gallery" class="hover:text-main transition-colors">Каталог (26)</a>
+        <a href="#craft" class="hover:text-main transition-colors">Силикон vs ПВХ</a>
+        <a href="tel:+79992356393" class="font-bold text-main hover:text-[#00E5FF] transition-colors">
+          +7 (999) 235-63-93
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       LIGHTBOX ДЛЯ ПРОСМОТРА ФОТОГРАФИЙ В ПОЛНОМ РАЗМЕРЕ
+  ====================================================================== -->
+  <div id="galleryLightbox" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+    <div class="bg-[#11131C] text-white rounded-3xl max-w-3xl w-full overflow-hidden border border-white/15 relative shadow-2xl">
+      <button type="button" id="lbClose" aria-label="Закрыть"
+              class="absolute top-3.5 right-3.5 z-20 w-10 h-10 rounded-full bg-black/75 border border-white/20 text-white flex items-center justify-center hover:bg-[#FF2E93] transition">
+        ✕
+      </button>
+
+      <div id="lbStage" class="relative h-72 sm:h-[450px] w-full bg-[#08090D] flex items-center justify-center overflow-hidden select-none">
+        <img id="lbImg" src="" alt=""
+             onerror="this.style.display='none'; document.getElementById('lbPlaceholder').classList.remove('hidden');"
+             class="w-full h-full object-contain" />
+        <div id="lbPlaceholder" class="hidden w-full h-full flex flex-col items-center justify-center p-6 text-center">
+          <span id="lbPhTitle" class="text-lg font-black text-[#00E5FF]"></span>
+          <span id="lbPhSrc" class="text-xs font-mono text-zinc-400 mt-2"></span>
+        </div>
+
+        <button type="button" id="lbPrev" aria-label="Назад"
+                class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/75 hover:bg-[#FF2E93] border border-white/20 text-white text-xl font-bold flex items-center justify-center transition">
+          ‹
+        </button>
+        <button type="button" id="lbNext" aria-label="Вперёд"
+                class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/75 hover:bg-[#FF2E93] border border-white/20 text-white text-xl font-bold flex items-center justify-center transition">
+          ›
+        </button>
+      </div>
+
+      <div class="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/10">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono">
+            <span id="lbCity" class="text-[#00E5FF] font-bold"></span>
+            <span class="text-zinc-500">•</span>
+            <span id="lbCount" class="text-zinc-400"></span>
+          </div>
+          <h3 id="lbTitle" class="text-base sm:text-lg font-extrabold text-white mt-1"></h3>
+          <p id="lbDesc" class="text-xs text-zinc-400 mt-1"></p>
+        </div>
+
+        <button type="button" id="lbCalcBtn"
+                class="px-5 py-3 rounded-full bg-[#FF2E93] hover:bg-[#ff47a1] text-white font-bold text-xs sm:text-sm shrink-0 transition cursor-pointer">
+          Похожий расчёт →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       JAVASCRIPT: ТЕМА, СПЕКТРАЛЬНЫЙ СТЕНД, ВСЕ 26 ФОТО С ПРЕДЗАГРУЗКОЙ И ФОРМА
+  ====================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const TELEGRAM_USER = 'LedCustom69';
+
+      // ===================================================================
+      // 1. ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ (ТЁМНАЯ ГАЛЕРЕЯ ПО УМОЛЧАНИЮ <-> СВЕТЛЫЙ ЗАЛ)
+      // ===================================================================
+      const htmlEl = document.documentElement;
+      const themeSwitchBtn = document.getElementById('themeSwitchBtn');
+      const themeIcon = document.getElementById('themeIcon');
+      const themeText = document.getElementById('themeText');
+      const ambientHalos = document.getElementById('ambientHalos');
+
+      function setGalleryTheme(mode) {
+        const isLight = mode === 'light';
+        if (isLight) {
+          htmlEl.classList.add('light-theme');
+          themeIcon.textContent = '☾';
+          themeText.textContent = 'Тёмный зал';
+          ambientHalos.style.opacity = '0.35';
+        } else {
+          htmlEl.classList.remove('light-theme');
+          themeIcon.textContent = '☀';
+          themeText.textContent = 'Светлый зал';
+          ambientHalos.style.opacity = '1';
+        }
+        try { localStorage.setItem('neneon_gallery_theme', mode); } catch (e) {}
+      }
+
+      let initTheme = 'dark';
+      try { initTheme = localStorage.getItem('neneon_gallery_theme') || 'dark'; } catch (e) {}
+      setGalleryTheme(initTheme);
+
+      themeSwitchBtn.addEventListener('click', () => {
+        const next = htmlEl.classList.contains('light-theme') ? 'dark' : 'light';
+        setGalleryTheme(next);
+      });
+
+      // Мобильное меню
+      const burgerBtn = document.getElementById('burgerBtn');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      burgerBtn.addEventListener('click', () => mobileDrawer.classList.toggle('hidden'));
+      document.querySelectorAll('.mob-nav-link').forEach(a => {
+        a.addEventListener('click', () => mobileDrawer.classList.add('hidden'));
+      });
+
+      // Hero переключатель День / Вечер
+      const heroEveningBtn = document.getElementById('heroEveningBtn');
+      const heroDayBtn = document.getElementById('heroDayBtn');
+      const heroDayOverlay = document.getElementById('heroDayOverlay');
+
+      heroEveningBtn.addEventListener('click', () => {
+        heroDayOverlay.classList.add('opacity-0');
+        heroEveningBtn.className = 'px-3 py-1 rounded-full bg-[#FF2E93] text-white transition';
+        heroDayBtn.className = 'px-3 py-1 rounded-full text-sec hover:text-main transition';
+      });
+
+      heroDayBtn.addEventListener('click', () => {
+        heroDayOverlay.classList.remove('opacity-0');
+        heroDayBtn.className = 'px-3 py-1 rounded-full bg-[#00E5FF] text-[#090A0F] font-bold transition';
+        heroEveningBtn.className = 'px-3 py-1 rounded-full text-sec hover:text-main transition';
+      });
+
+      // ===================================================================
+      // 2. СПЕКТРАЛЬНЫЙ СТЕНД (15 ОТТЕНКОВ, 6 / 8 ММ, 4 ТЕКСТУРЫ СТЕН)
+      // ===================================================================
+      const SPECTRUM_COLORS = [
+        { id: 'warm-3000',   name: 'Тёплый белый 3000K',   spec: '3000K • уютный',    hex: '#FFE4B5', glow: 'rgba(255, 228, 181, 0.90)' },
+        { id: 'neutral-4k',  name: 'Нейтральный 4000K',    spec: '4000K • дневной',   hex: '#FFF6E5', glow: 'rgba(255, 246, 229, 0.90)' },
+        { id: 'cold-6500',   name: 'Холодный 6500K',       spec: '6500K • чистый',    hex: '#F0F8FF', glow: 'rgba(240, 248, 255, 0.92)' },
+        { id: 'cyan',        name: 'Циан',                 spec: '~490 нм',           hex: '#00E5FF', glow: 'rgba(0, 229, 255, 0.95)' },
+        { id: 'sky-blue',    name: 'Небесно-голубой',      spec: '~475 нм',           hex: '#38BDF8', glow: 'rgba(56, 189, 248, 0.92)' },
+        { id: 'ultramarine', name: 'Ультрамарин',          spec: '~455 нм',           hex: '#2563EB', glow: 'rgba(37, 99, 235, 0.92)' },
+        { id: 'marmalade',   name: 'Мармеладно-розовый',   spec: '~620 нм',           hex: '#FF2E93', glow: 'rgba(255, 46, 147, 0.95)' },
+        { id: 'fuchsia',     name: 'Фуксия',               spec: '~610 нм',           hex: '#E879F9', glow: 'rgba(232, 121, 249, 0.92)' },
+        { id: 'ruby',        name: 'Рубиново-красный',     spec: '~640 нм',           hex: '#FF1E38', glow: 'rgba(255, 30, 56, 0.92)' },
+        { id: 'amber',       name: 'Янтарный',             spec: '~595 нм',           hex: '#FF6B00', glow: 'rgba(255, 107, 0, 0.92)' },
+        { id: 'gold-yellow', name: 'Золотисто-жёлтый',     spec: '~580 нм',           hex: '#FFB800', glow: 'rgba(255, 184, 0, 0.92)' },
+        { id: 'emerald',     name: 'Изумрудный',           spec: '~525 нм',           hex: '#00E676', glow: 'rgba(0, 230, 118, 0.92)' },
+        { id: 'lime',        name: 'Лайм',                 spec: '~555 нм',           hex: '#A3E635', glow: 'rgba(163, 230, 53, 0.92)' },
+        { id: 'violet',      name: 'Фиолетовый',           spec: '~420 нм',           hex: '#9333EA', glow: 'rgba(147, 51, 234, 0.92)' },
+        { id: 'uv-neon',     name: 'УФ-неон',              spec: '~395 нм • UV',      hex: '#6D28D9', glow: 'rgba(124, 58, 237, 0.95)' }
+      ];
+
+      let currentColor = SPECTRUM_COLORS[6]; // Мармеладно-розовый по умолчанию
+      let currentCord = '6';
+
+      const spectrumStage = document.getElementById('spectrumStage');
+      const neonPreviewWord = document.getElementById('neonPreviewWord');
+      const neonTubeBar = document.getElementById('neonTubeBar');
+      const spectrumReadoutLeft = document.getElementById('spectrumReadoutLeft');
+      const spectrumReadoutRight = document.getElementById('spectrumReadoutRight');
+      const spectrumSwatches = document.getElementById('spectrumSwatches');
+      const activeSwatchDot = document.getElementById('activeSwatchDot');
+      const activeSwatchTitle = document.getElementById('activeSwatchTitle');
+      const activeSwatchMeta = document.getElementById('activeSwatchMeta');
+
+      function updateSpectrumPreview() {
+        const spread = currentCord === '8' ? 54 : 38;
+        const mid = currentCord === '8' ? 24 : 16;
+        const tubeHeight = currentCord === '8' ? '9px' : '6px';
+
+        neonPreviewWord.style.color = '#FFFFFF';
+        neonPreviewWord.style.textShadow = `0 0 5px ${currentColor.hex}, 0 0 ${mid}px ${currentColor.glow}, 0 0 ${spread}px ${currentColor.glow}`;
+
+        neonTubeBar.style.height = tubeHeight;
+        neonTubeBar.style.boxShadow = `0 0 6px ${currentColor.hex}, 0 0 ${mid}px ${currentColor.glow}, 0 0 ${spread}px ${currentColor.glow}`;
+
+        spectrumReadoutLeft.textContent = `ОТТЕНОК: ${currentColor.name.toUpperCase()} • ${currentColor.spec.toUpperCase()}`;
+        spectrumReadoutRight.textContent = `СЕЧЕНИЕ: ${currentCord} ММ • ПИТАНИЕ 12V DC • IP65/IP67`;
+
+        activeSwatchDot.style.backgroundColor = currentColor.hex;
+        activeSwatchDot.style.boxShadow = `0 0 16px ${currentColor.glow}`;
+        activeSwatchTitle.textContent = `Выбран цвет: ${currentColor.name} (${currentColor.spec})`;
+        activeSwatchMeta.textContent = `Силиконовый шнур ${currentCord} мм • Ровное свечение без точек • Гарантия 3 года`;
+      }
+
+      function renderSpectrumSwatches() {
+        spectrumSwatches.innerHTML = SPECTRUM_COLORS.map(item => {
+          const active = item.id === currentColor.id;
+          return `
+            <button type="button" data-swatch-id="${item.id}"
+                    class="swatch-item flex items-center gap-2.5 px-3 py-2.5 rounded-xl border text-left transition cursor-pointer ${
+                      active
+                        ? 'bg-[#FF2E93] text-white border-[#FF2E93] shadow-[0_0_16px_rgba(255,46,147,0.35)]'
+                        : 'gal-pill text-main hover:border-[#00E5FF]'
+                    }">
+              <span class="w-4 h-4 rounded-full shrink-0 border border-white/25"
+                    style="background-color:${item.hex}; box-shadow: 0 0 8px ${item.glow};"></span>
+              <span class="min-w-0 flex-1">
+                <span class="block text-xs font-bold leading-tight truncate">${item.name}</span>
+                <span class="block text-[10px] font-mono opacity-75 mt-0.5">${item.spec}</span>
+              </span>
+            </button>
+          `;
+        }).join('');
+
+        document.querySelectorAll('.swatch-item').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const found = SPECTRUM_COLORS.find(c => c.id === btn.getAttribute('data-swatch-id'));
+            if (!found) return;
+            currentColor = found;
+            updateSpectrumPreview();
+            renderSpectrumSwatches();
+          });
+        });
+      }
+
+      document.querySelectorAll('.cord-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentCord = btn.getAttribute('data-cord');
+          document.querySelectorAll('.cord-btn').forEach(b => {
+            b.className = 'cord-btn px-3 py-1 rounded-full text-zinc-300 hover:text-white font-semibold transition';
+          });
+          btn.className = 'cord-btn px-3 py-1 rounded-full bg-[#00E5FF] text-[#090A0F] font-bold transition';
+          updateSpectrumPreview();
+        });
+      });
+
+      document.querySelectorAll('.wall-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wallClass = btn.getAttribute('data-wall');
+          spectrumStage.classList.remove('wall-graphite', 'wall-concrete', 'wall-brick', 'wall-plaster');
+          spectrumStage.classList.add(wallClass);
+          document.querySelectorAll('.wall-btn').forEach(b => {
+            b.className = 'wall-btn px-3 py-1 rounded-full text-zinc-300 hover:text-white font-medium transition';
+          });
+          btn.className = 'wall-btn px-3 py-1 rounded-full bg-white text-[#090A0F] font-bold transition';
+        });
+      });
+
+      updateSpectrumPreview();
+      renderSpectrumSwatches();
+
+      // ===================================================================
+      // 3. КАТАЛОГ РАБОТ (ВСЕ 26 ФОТОГРАФИЙ С ТОЧНОЙ ПРИВЯЗКОЙ И ПРЕДЗАГРУЗКОЙ)
+      // ===================================================================
+      const GALLERY_WORKS = [
+        {
+          id: 'winenot',
+          city: 'Екатеринбург',
+          cat: 'storefront',
+          tag: 'Витрины и вывески',
+          title: 'Винотека WineNot',
+          desc: 'Стильная неоновая вывеска для винотеки в Екатеринбурге с мягким рассеянным свечением.',
+          photos: ['images/work-1.jpg']
+        },
+        {
+          id: 'lounge-bar',
+          city: 'Екатеринбург',
+          cat: 'interior',
+          tag: 'Интерьер и атмосфера',
+          title: 'Бар и лаунж-зона',
+          desc: 'Акцентная интерьерная подсветка и фирменный неоновый знак с ровной линией без диодных точек.',
+          photos: ['images/work-2.jpg', 'images/work-3.jpg']
+        },
+        {
+          id: 'beauty-studio',
+          city: 'Екатеринбург',
+          cat: 'storefront',
+          tag: 'Витрины и вывески',
+          title: 'Студия красоты и ресепшн',
+          desc: 'Тёплая интерьерная вывеска на прозрачном акриле со скрытым токопроводом для фотозоны и ресепшна.',
+          photos: ['images/work-4.jpg', 'images/work-5.jpg']
+        },
+        {
+          id: 'coffee-bakery',
+          city: 'Санкт-Петербург',
+          cat: 'storefront',
+          tag: 'Витрины и вывески',
+          title: 'Кофейня и пекарня',
+          desc: 'Витринные неоновые вывески с высокой читаемостью в дневное и вечернее время.',
+          photos: ['images/work-6.jpg', 'images/work-7.jpg']
+        },
+        {
+          id: 'event-decor',
+          city: 'Санкт-Петербург',
+          cat: 'art',
+          tag: 'Арт и инсталляции',
+          title: 'Неоновый декор для мероприятия',
+          desc: 'Световые арт-объекты и надписи из гибкого силиконового неона для сцены и фотозоны.',
+          photos: ['images/work-8.jpg', 'images/work-9.jpg']
+        },
+        {
+          id: 'bar-sign',
+          city: 'Санкт-Петербург',
+          cat: 'interior',
+          tag: 'Интерьер и линии',
+          title: 'Интерьерная вывеска для бара',
+          desc: 'Контрастное двухцветное свечение с герметичной пайкой стыков и диммером регулировки яркости.',
+          photos: ['images/work-10.jpg', 'images/work-11.jpg']
+        },
+        {
+          id: 'hall-lines',
+          city: 'Санкт-Петербург',
+          cat: 'interior',
+          tag: 'Интерьер и линии',
+          title: 'Световая инсталляция в холле',
+          desc: 'Архитектурная подсветка пролётов и стен силиконовым неоном 8 мм.',
+          photos: ['images/work-12.jpg', 'images/work-13.jpg']
+        },
+        {
+          id: 'store-facade',
+          city: 'Санкт-Петербург',
+          cat: 'storefront',
+          tag: 'Витрины и вывески',
+          title: 'Фасадная вывеска магазина',
+          desc: 'Уличное исполнение IP67 с защитой от влаги, мороза до -40°C и запасом блока питания +30%.',
+          photos: ['images/work-14.jpg', 'images/work-15.jpg', 'images/work-16.jpg']
+        },
+        {
+          id: 'pulkovsky',
+          city: 'Екатеринбург',
+          cat: 'storefront',
+          tag: 'Обрамление окон и фасада',
+          title: 'Супермаркет «Пулковский»',
+          desc: 'Контурная подсветка панорамных окон и входной группы супермаркета.',
+          photos: ['images/work-17.jpg', 'images/work-18.jpg']
+        },
+        {
+          id: 'sneaker-store',
+          city: 'Доставка по РФ',
+          cat: 'interior',
+          tag: 'Неоновые линии в интерьере',
+          title: 'Магазин кроссовок — неоновые линии',
+          desc: 'Динамичная геометрия из гибкого силиконового неона для торгового зала магазина кроссовок.',
+          photos: ['images/work-19.jpg', 'images/work-20.jpg']
+        },
+        {
+          id: 'you-can-do-it',
+          city: 'Доставка по РФ',
+          cat: 'interior',
+          tag: 'Индивидуальные вывески',
+          title: 'Вывеска «Ты можешь всё»',
+          desc: 'Мотивирующая интерьерная надпись с ровным свечением без видимых диодных точек.',
+          photos: ['images/work-21.jpg']
+        },
+        {
+          id: 'airplanes-heart',
+          city: 'Екатеринбург',
+          cat: 'art',
+          tag: 'Индивидуальные вывески',
+          title: 'Самолётики с сердцем',
+          desc: 'Серийное изготовление фигурных неоновых светильников на прозрачной акриловой подложке.',
+          photos: ['images/work-22.jpg']
+        },
+        {
+          id: 'creation-of-adam',
+          city: 'Доставка по РФ',
+          cat: 'art',
+          tag: 'Индивидуальные вывески',
+          title: 'Сотворение Адама',
+          desc: 'Детализированный художественный контур из тонкого 6 мм силиконового неона.',
+          photos: ['images/work-23.jpg']
+        },
+        {
+          id: 'green-bird',
+          city: 'Доставка по РФ',
+          cat: 'art',
+          tag: 'Фирменный знак',
+          title: 'Зелёный логотип-птица',
+          desc: 'Изумрудный фирменный знак с аккуратной скрытой пайкой и прозрачным токопроводом.',
+          photos: ['images/work-24.jpg']
+        },
+        {
+          id: 'batman-emblem',
+          city: 'Доставка по РФ',
+          cat: 'art',
+          tag: 'Индивидуальные вывески',
+          title: 'Эмблема Бэтмена',
+          desc: 'Двухцветная контурная эмблема высокой яркости для игровой комнаты или студии.',
+          photos: ['images/work-25.jpg']
+        },
+        {
+          id: 'witcher-medallion',
+          city: 'Доставка по РФ',
+          cat: 'art',
+          tag: 'Индивидуальные вывески',
+          title: 'Медальон «Ведьмак»',
+          desc: 'Сложная многоэлементная вывеска со множеством острых углов и плотной пайкой.',
+          photos: ['images/work-26.jpg']
+        }
+      ];
+
+      // Предзагрузка и декодирование изображений в памяти, чтобы слайдеры работали без задержек
+      const imgCache = new Map();
+
+      function preloadPhoto(src) {
+        if (!src || imgCache.has(src)) return imgCache.get(src);
+        const im = new Image();
+        im.decoding = 'async';
+        im.src = src;
+        if (typeof im.decode === 'function') {
+          im.decode().catch(() => {});
+        }
+        imgCache.set(src, im);
+        return im;
+      }
+
+      function preloadWork(work) {
+        if (!work || !Array.isArray(work.photos)) return;
+        work.photos.forEach(s => preloadPhoto(s));
+      }
+
+      const runIdle = window.requestIdleCallback
+        ? (fn) => window.requestIdleCallback(fn, { timeout: 1200 })
+        : (fn) => setTimeout(fn, 300);
+
+      runIdle(() => {
+        GALLERY_WORKS.forEach(w => { if (w.photos.length > 1) preloadWork(w); });
+        setTimeout(() => GALLERY_WORKS.forEach(w => preloadWork(w)), 800);
+      });
+
+      const activeSlideMap = {};
+      GALLERY_WORKS.forEach(w => { activeSlideMap[w.id] = 0; });
+
+      const galleryCardsGrid = document.getElementById('galleryCardsGrid');
+
+      function changeCardSlide(workId, nextIdx) {
+        const work = GALLERY_WORKS.find(w => w.id === workId);
+        if (!work) return;
+        const len = work.photos.length;
+        const normalized = ((nextIdx % len) + len) % len;
+        activeSlideMap[workId] = normalized;
+        preloadWork(work);
+
+        const imgNode = document.getElementById(`gal-img-${workId}`);
+        const countNode = document.getElementById(`gal-cnt-${workId}`);
+        const dotsBox = document.getElementById(`gal-dots-${workId}`);
+
+        if (countNode) countNode.textContent = String(normalized + 1);
+
+        if (dotsBox) {
+          dotsBox.querySelectorAll('[data-dot]').forEach(dot => {
+            const idx = Number(dot.getAttribute('data-dot'));
+            dot.className = idx === normalized
+              ? 'w-4 h-1.5 rounded-full bg-white transition-all'
+              : 'w-1.5 h-1.5 rounded-full bg-white/45 hover:bg-white/80 transition-all';
+          });
+        }
+
+        if (imgNode) {
+          const src = work.photos[normalized];
+          imgNode.style.display = '';
+          if (imgNode.nextElementSibling) imgNode.nextElementSibling.classList.add('hidden');
+          imgNode.src = src;
+        }
+      }
+
+      function scrollToEstimateWithPreset(presetLabel) {
+        const refInput = document.getElementById('reqRefProject');
+        const targetSection = document.getElementById('estimate');
+        if (refInput) {
+          refInput.value = presetLabel;
+        }
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+
+      document.getElementById('applyColorToFormBtn').addEventListener('click', () => {
+        scrollToEstimateWithPreset(`Цвет: ${currentColor.name} (${currentColor.spec}), шнур ${currentCord} мм`);
+      });
+
+      function renderGallery(category = 'all') {
+        const filtered = category === 'all'
+          ? GALLERY_WORKS
+          : GALLERY_WORKS.filter(w => w.cat === category);
+
+        galleryCardsGrid.innerHTML = filtered.map((work, index) => {
+          const total = work.photos.length;
+          const idx = activeSlideMap[work.id] || 0;
+          const src = work.photos[idx];
+          const numLabel = String(index + 1).padStart(2, '0');
+
+          const sliderControls = total > 1 ? `
+            <span class="absolute top-3.5 right-3.5 z-10 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-white font-mono text-[11px] font-bold">
+              <span id="gal-cnt-${work.id}">${idx + 1}</span> / ${total}
+            </span>
+            <button type="button" data-dir="-1" data-wid="${work.id}" aria-label="Предыдущий кадр"
+                    class="gal-arrow absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/70 hover:bg-[#FF2E93] text-white font-bold flex items-center justify-center transition">
+              ‹
+            </button>
+            <button type="button" data-dir="1" data-wid="${work.id}" aria-label="Следующий кадр"
+                    class="gal-arrow absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/70 hover:bg-[#FF2E93] text-white font-bold flex items-center justify-center transition">
+              ›
+            </button>
+            <div id="gal-dots-${work.id}" class="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/55 backdrop-blur-sm">
+              ${work.photos.map((_, dIdx) => `
+                <button type="button" data-wdot="${work.id}" data-dot="${dIdx}" aria-label="Кадр ${dIdx + 1}"
+                        class="${dIdx === idx ? 'w-4 h-1.5 rounded-full bg-white transition-all' : 'w-1.5 h-1.5 rounded-full bg-white/45 hover:bg-white/80 transition-all'}"></button>
+              `).join('')}
+            </div>
+          ` : '';
+
+          return `
+            <article data-open-work="${work.id}"
+                     class="gal-work-card group gal-card rounded-3xl overflow-hidden cursor-pointer flex flex-col justify-between">
+              <div data-swipe-work="${work.id}" class="gal-media relative h-64 sm:h-72 w-full bg-[#08090D] overflow-hidden select-none">
+                <img id="gal-img-${work.id}" src="${src}" alt="${work.title}" loading="eager" decoding="async"
+                     onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                     class="gallery-img-fade w-full h-full object-cover group-hover:scale-105" />
+                <div class="hidden w-full h-full flex flex-col items-center justify-center p-4 text-center bg-gradient-to-br from-[#0D101B] via-[#131726] to-[#1A1021]">
+                  <span class="text-sm font-extrabold text-[#00E5FF]">${work.title}</span>
+                  <span class="text-[11px] font-mono text-zinc-400 mt-1">${src}</span>
+                </div>
+
+                <!-- Галерейная бирка города -->
+                <span class="absolute top-3.5 left-3.5 z-10 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-[11px] font-semibold text-white">
+                  ${work.city}
+                </span>
+
+                ${sliderControls}
+              </div>
+
+              <!-- Музейная табличка экспоната -->
+              <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between gap-2 text-[11px] font-mono text-mut">
+                    <span>№ ${numLabel} • ${work.tag}</span>
+                  </div>
+                  <h3 class="text-lg font-extrabold text-main mt-1.5 leading-snug">
+                    ${work.title}
+                  </h3>
+                  <p class="text-xs sm:text-[13px] text-sec mt-1.5 leading-relaxed">
+                    ${work.desc}
+                  </p>
+                </div>
+
+                <div class="pt-4 mt-4 border-t border-gal flex items-center justify-between text-xs">
+                  <span class="font-mono text-mut">Гарантия 3 года</span>
+                  <button type="button" data-similar="${work.title}"
+                          class="similar-calc-btn font-bold text-[#00E5FF] hover:text-[#FF2E93] transition-colors cursor-pointer">
+                    Похожий расчёт →
+                  </button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        // Навешиваем события карточек
+        document.querySelectorAll('.gal-work-card').forEach(card => {
+          const workId = card.getAttribute('data-open-work');
+          const work = GALLERY_WORKS.find(w => w.id === workId);
+
+          card.addEventListener('pointerenter', () => preloadWork(work), { passive: true });
+          card.addEventListener('touchstart', () => preloadWork(work), { passive: true });
+
+          card.addEventListener('click', () => {
+            if (!work) return;
+            const slides = work.photos.map(s => ({
+              src: s,
+              city: work.city,
+              title: work.title,
+              desc: work.desc
+            }));
+            openGalleryLightbox(slides, activeSlideMap[workId] || 0);
+          });
+        });
+
+        // Стрелки слайдера
+        document.querySelectorAll('.gal-arrow').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const wid = btn.getAttribute('data-wid');
+            const dir = Number(btn.getAttribute('data-dir'));
+            changeCardSlide(wid, (activeSlideMap[wid] || 0) + dir);
+          });
+        });
+
+        // Точки слайдера
+        document.querySelectorAll('[data-wdot]').forEach(dot => {
+          dot.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const wid = dot.getAttribute('data-wdot');
+            const idx = Number(dot.getAttribute('data-dot'));
+            changeCardSlide(wid, idx);
+          });
+        });
+
+        // Кнопка «Похожий расчёт →»
+        document.querySelectorAll('.similar-calc-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            scrollToEstimateWithPreset(`Похожий проект: «${btn.getAttribute('data-similar')}»`);
+          });
+        });
+
+        // Свайпы на мобильном
+        document.querySelectorAll('.gal-media').forEach(media => {
+          const wid = media.getAttribute('data-swipe-work');
+          const work = GALLERY_WORKS.find(w => w.id === wid);
+          if (!work || work.photos.length <= 1) return;
+
+          let sx = 0;
+          let sy = 0;
+          media.addEventListener('touchstart', (e) => {
+            if (!e.touches || !e.touches[0]) return;
+            sx = e.touches[0].clientX;
+            sy = e.touches[0].clientY;
+          }, { passive: true });
+
+          media.addEventListener('touchend', (e) => {
+            if (!e.changedTouches || !e.changedTouches[0]) return;
+            const dx = e.changedTouches[0].clientX - sx;
+            const dy = e.changedTouches[0].clientY - sy;
+            if (Math.abs(dx) > 36 && Math.abs(dx) > Math.abs(dy)) {
+              e.stopPropagation();
+              changeCardSlide(wid, (activeSlideMap[wid] || 0) + (dx < 0 ? 1 : -1));
+            }
+          }, { passive: true });
+        });
+      }
+
+      document.querySelectorAll('.gal-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.gal-filter-btn').forEach(b => {
+            b.className = 'gal-filter-btn gal-pill px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-main shrink-0 transition';
+          });
+          btn.className = 'gal-filter-btn px-4 py-2 rounded-full bg-[#FF2E93] text-white text-xs sm:text-sm font-bold shrink-0 transition';
+          renderGallery(btn.getAttribute('data-cat'));
+        });
+      });
+
+      renderGallery('all');
+
+      // ===================================================================
+      // 4. LIGHTBOX ДЛЯ ГАЛЕРЕИ И КЕЙСА «БУЛОЧНАЯ № 64»
+      // ===================================================================
+      const galleryLightbox = document.getElementById('galleryLightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbPlaceholder = document.getElementById('lbPlaceholder');
+      const lbPhTitle = document.getElementById('lbPhTitle');
+      const lbPhSrc = document.getElementById('lbPhSrc');
+      const lbCity = document.getElementById('lbCity');
+      const lbCount = document.getElementById('lbCount');
+      const lbTitle = document.getElementById('lbTitle');
+      const lbDesc = document.getElementById('lbDesc');
+      const lbPrev = document.getElementById('lbPrev');
+      const lbNext = document.getElementById('lbNext');
+      const lbClose = document.getElementById('lbClose');
+      const lbCalcBtn = document.getElementById('lbCalcBtn');
+      const lbStage = document.getElementById('lbStage');
+
+      let modalSlides = [];
+      let modalIdx = 0;
+
+      function updateLightboxView() {
+        const item = modalSlides[modalIdx];
+        if (!item) return;
+        modalSlides.forEach(s => preloadPhoto(s.src));
+
+        lbImg.style.display = '';
+        lbPlaceholder.classList.add('hidden');
+        lbImg.src = item.src;
+        lbImg.alt = item.title;
+        lbPhTitle.textContent = item.title;
+        lbPhSrc.textContent = item.src;
+
+        lbCity.textContent = item.city;
+        lbCount.textContent = `${modalIdx + 1} из ${modalSlides.length}`;
+        lbTitle.textContent = item.title;
+        lbDesc.textContent = item.desc || '';
+
+        const multi = modalSlides.length > 1;
+        lbPrev.style.display = multi ? 'flex' : 'none';
+        lbNext.style.display = multi ? 'flex' : 'none';
+      }
+
+      function openGalleryLightbox(slides, startIdx = 0) {
+        modalSlides = slides;
+        modalIdx = startIdx;
+        updateLightboxView();
+        galleryLightbox.classList.remove('hidden');
+        galleryLightbox.classList.add('flex');
+      }
+
+      function closeGalleryLightbox() {
+        galleryLightbox.classList.add('hidden');
+        galleryLightbox.classList.remove('flex');
+      }
+
+      lbClose.addEventListener('click', closeGalleryLightbox);
+      lbPrev.addEventListener('click', () => {
+        modalIdx = (modalIdx - 1 + modalSlides.length) % modalSlides.length;
+        updateLightboxView();
+      });
+      lbNext.addEventListener('click', () => {
+        modalIdx = (modalIdx + 1) % modalSlides.length;
+        updateLightboxView();
+      });
+
+      lbCalcBtn.addEventListener('click', () => {
+        const current = modalSlides[modalIdx];
+        closeGalleryLightbox();
+        if (current) {
+          scrollToEstimateWithPreset(`Похожий проект: «${current.title}»`);
+        }
+      });
+
+      galleryLightbox.addEventListener('click', (e) => {
+        if (e.target === galleryLightbox) closeGalleryLightbox();
+      });
+
+      let lbStartX = 0;
+      lbStage.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches[0]) lbStartX = e.touches[0].clientX;
+      }, { passive: true });
+      lbStage.addEventListener('touchend', (e) => {
+        if (!e.changedTouches || !e.changedTouches[0] || modalSlides.length <= 1) return;
+        const dx = e.changedTouches[0].clientX - lbStartX;
+        if (Math.abs(dx) > 40) {
+          modalIdx = dx < 0
+            ? (modalIdx + 1) % modalSlides.length
+            : (modalIdx - 1 + modalSlides.length) % modalSlides.length;
+          updateLightboxView();
+        }
+      }, { passive: true });
+
+      document.addEventListener('keydown', (e) => {
+        if (galleryLightbox.classList.contains('hidden')) return;
+        if (e.key === 'Escape') closeGalleryLightbox();
+        if (e.key === 'ArrowLeft') {
+          modalIdx = (modalIdx - 1 + modalSlides.length) % modalSlides.length;
+          updateLightboxView();
+        }
+        if (e.key === 'ArrowRight') {
+          modalIdx = (modalIdx + 1) % modalSlides.length;
+          updateLightboxView();
+        }
+      });
+
+      // Кейс «Булочная № 64»
+      const CASE_SLIDES = [
+        {
+          src: 'images/fire-1.jpg',
+          city: 'Кейс: Булочная № 64',
+          title: 'Очаг ночного возгорания старой ПВХ-вывески',
+          desc: 'Перегрев в месте плохой скрутки и оплавление горючей ПВХ-оболочки.'
+        },
+        {
+          src: 'images/fire-2.jpg',
+          city: 'Кейс: Булочная № 64',
+          title: 'Треснувшее витринное стекло от перегрева ПВХ',
+          desc: 'Заменили на безопасный силиконовый неон 8 мм с надёжной пайкой стыков и запасом БП +30%.'
+        }
+      ];
+      CASE_SLIDES.forEach(s => preloadPhoto(s.src));
+
+      document.querySelectorAll('.case-photo-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.getAttribute('data-case-idx')) || 0;
+          openGalleryLightbox(CASE_SLIDES, idx);
+        });
+      });
+
+      // ===================================================================
+      // 5. КОНФИГУРАТОР И ФОРМА РАСЧЁТА ЗА 15 МИНУТ
+      // ===================================================================
+      const widthRangeInput = document.getElementById('widthRangeInput');
+      const widthValueLabel = document.getElementById('widthValueLabel');
+      let selectedPlacement = 'Интерьер (IP20/IP65)';
+
+      widthRangeInput.addEventListener('input', () => {
+        widthValueLabel.textContent = `${widthRangeInput.value} см`;
+      });
+
+      document.querySelectorAll('.place-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectedPlacement = btn.getAttribute('data-place');
+          document.querySelectorAll('.place-btn').forEach(b => {
+            b.className = 'place-btn gal-card py-2.5 px-3 rounded-xl text-xs font-semibold text-main transition';
+          });
+          btn.className = 'place-btn py-2.5 px-3 rounded-xl bg-[#00E5FF] text-[#090A0F] text-xs font-bold transition';
+        });
+      });
+
+      const calcRequestForm = document.getElementById('calcRequestForm');
+      const formSuccessBox = document.getElementById('formSuccessBox');
+      const formDirectTgLink = document.getElementById('formDirectTgLink');
+
+      calcRequestForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const refVal = document.getElementById('reqRefProject').value.trim();
+        const ideaVal = document.getElementById('reqIdea').value.trim();
+        const contactVal = document.getElementById('reqContact').value.trim();
+        const widthVal = widthRangeInput.value;
+
+        const summaryText = [
+          'Привет! Заявка на расчёт вывески NeНЕОН:',
+          refVal ? `• Ориентир / цвет: ${refVal}` : `• Цвет со стенда: ${currentColor.name} (${currentCord} мм)`,
+          `• Ширина: ~${widthVal} см (${selectedPlacement})`,
+          `• Идея / надпись: ${ideaVal}`,
+          `• Контакт для связи: ${contactVal}`
+        ].join('\n');
+
+        // Копируем текст заявки в буфер обмена
+        const ta = document.createElement('textarea');
+        ta.value = summaryText;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (err) {}
+        document.body.removeChild(ta);
+
+        formDirectTgLink.href = `https://t.me/${TELEGRAM_USER}?text=${encodeURIComponent(summaryText)}`;
+        formSuccessBox.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
